@@ -14,5 +14,7 @@ Existem duas formas de rodar o simplescartesiano:
 
 Muito intuitivo, com todas as instruções no terminal. Caso você digite um valor inválido, o aplicativo avisará e pedirá a reinserção do mesmo. Após visualizar o gráfico, feche-o pelo menu do próprio Windows.
 
-IMPORTANTE: É necessário fechar o gráfico antes de iniciar outra operação, pois o terminal fica bloqueado até que o gráfico seja fechado.
+# IMPORTANTE: 
+É necessário fechar o gráfico antes de iniciar outra operação, pois os terminais dos sistemas operacionais (CMD, Powershell, ZSH, Konsole etc.) usam um buffer para inputs do usuário. Isso significa que, mesmo sem nenhum indício visual, os dados digitados estão sendo armazenados em uma "tabela", e serão processados pelos inputs assim que eles estiverem disponíveis, por ordem de digitação. Na prática, se você digitar ou pressionar "Enter" enquanto o gráfico ainda está aberto, essas ações ficarão "em espera" e serão executadas em sequência assim que o gráfico for fechado — o que causará saltos inesperados entre etapas do programa.
+
 

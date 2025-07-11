@@ -1,6 +1,7 @@
+import os
+import numpy as np
 from fractions import Fraction
 from matplotlib import pyplot as plt
-import numpy as np
 
 # Lógica enorme pra controlar todos os tipos de input
 def ConverterTipo(value):
@@ -54,7 +55,8 @@ def ConstanteC():
     plt.ylabel("Eixo Y")
     plt.grid(True)
     plt.legend()
-    plt.show()
+    plt.show(block=True)
+    return True
 
 # Uma função só, pela simplicidade da função do 1° grau
 def PrimeiroGrau():
@@ -86,7 +88,8 @@ def PrimeiroGrau():
     plt.ylabel("Eixo Y")
     plt.grid(True)
     plt.legend()
-    plt.show()
+    plt.show(block=True)
+    return True
 
 
 def SegundoGrau():
@@ -138,19 +141,28 @@ def GrafSegundoGrau():
     plt.grid(True)
     plt.legend()
     plt.show(block=True)
- 
+    return True
+
+
+def Executar(a, b, c):   #Transformar lógica da execução em uma função, por praticidade e pra limpar a execução
+    if (a == 0) and (b == 0):
+        return ConstanteC()
+    elif (a == 0) and (b != 0):
+        return PrimeiroGrau()
+    else:
+        return GrafSegundoGrau()
+
     
 num = input("Calcule uma equação do 1° ou do 2° grau! Aperte N para sair ou qualquer tecla para iniciar. ").upper()
 
-while not "N" in num:
-    a, b, c = [PegarCoeficientes(v) for v in ["A", "B", "C"]] # Pega os valores de A, B e C com line comprehension.
-    if (a == 0) and (b == 0):
-        ConstanteC()
-    elif (a == 0) and (b != 0):
-        PrimeiroGrau()
-    else:    
-        GrafSegundoGrau()
+while "N" not in num: # Loop de execução
+    a, b, c = [PegarCoeficientes(v) for v in ["A", "B", "C"]] # Pega os valores de A, B e C com line comprehension
+    restart = Executar(a, b, c) # Pega o valor de retorno das funções apenas quando a execução delas termina
     
+    while restart is not True: # Restart deve ser True para que os comandos sejam interpretados pelo terminal (loop de pós-execução)
+        pass
+    
+    os.system("cls" if os.name == "nt" else "clear")
     num = input("Aperte N para sair ou qualquer tecla para reiniciar. ").upper()
 
 
