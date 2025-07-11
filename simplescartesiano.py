@@ -22,7 +22,7 @@ def PegarCoeficientes(name):
         if valid == True:
             return converted
         else:    
-            print(f"O coeficiente {name} deve ser um número inteiro!")
+            print(f"O coeficiente {name} deve ser um número real!")
 
 
 def PlotarRaizes(roots, a):    # Função para mostrar o momento em que o gráfico toca o eixo X (y == 0)
