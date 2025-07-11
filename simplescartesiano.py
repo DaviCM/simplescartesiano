@@ -35,7 +35,6 @@ def PlotarRaizes(roots, a):    # Função para mostrar o momento em que o gráfi
             ha = "right"    # Para a outra raíz, o melhor é alinhar na direita (legibilidade).
         plt.text(x, 0, f"x = {round(x, 2)}", fontsize="medium", ha=ha, va='bottom', color="darkblue")
     
-    
 # Uma função só, pela simplicidade da constante
 def ConstanteC():
     print("A e B são iguais a 0. O gráfico é constante, onde Y = C.")
@@ -56,7 +55,6 @@ def ConstanteC():
     plt.grid(True)
     plt.legend()
     plt.show()
-
 
 # Uma função só, pela simplicidade da função do 1° grau
 def PrimeiroGrau():
@@ -139,7 +137,7 @@ def GrafSegundoGrau():
     plt.ylabel("Eixo Y")
     plt.grid(True)
     plt.legend()
-    plt.show()
+    plt.show(block=True)
  
     
 num = input("Calcule uma equação do 1° ou do 2° grau! Aperte N para sair ou qualquer tecla para iniciar. ").upper()
