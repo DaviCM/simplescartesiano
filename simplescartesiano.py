@@ -1,14 +1,12 @@
+from fractions import Fraction
 from matplotlib import pyplot as plt
 import numpy as np
 
 # Lógica enorme pra controlar todos os tipos de input
 def ConverterTipo(value):
     try:
-        value = float(value)
-        if value.is_integer() == True:
-            return True, float(value)
-        else:
-            return False, None
+        value = float(Fraction(value))
+        return True, float(value)
     except ValueError:
         if value == "":
             value = 0
@@ -72,7 +70,7 @@ def PrimeiroGrau():
     plt.xlim(- 10, 10)
     plt.ylim(np.min(yValues), np.max(yValues))  # Margem de 0 para todos os pontos serem mostrados.
         
-    plt.plot(xValues, yValues, label=rf"$y = {c}$", color="red", linewidth=2)
+    plt.plot(xValues, yValues, label=rf"$y = {b}x + {c}$", color="red", linewidth=2)
     plt.title("Gráfico da Equação do Primeiro Grau")
     plt.xlabel("Eixo X")
     plt.ylabel("Eixo Y")
