@@ -156,7 +156,7 @@ def Executar(a, b, c):   #Transformar lógica da execução em uma função, por
 num = input("Calcule uma equação do 1° ou do 2° grau! Aperte N para sair ou qualquer tecla para iniciar. ").upper()
 
 while "N" not in num: # Loop de execução
-    a, b, c = [PegarCoeficientes(v) for v in ["A", "B", "C"]] # Pega os valores de A, B e C com line comprehension
+    a, b, c = [PegarCoeficientes(v) for v in ["A", "B", "C"]] # Pega os valores de A, B e C com list comprehension
     restart = Executar(a, b, c) # Pega o valor de retorno das funções apenas quando a execução delas termina
     
     while restart is not True: # Restart deve ser True para que os comandos sejam interpretados pelo terminal (loop de pós-execução)
